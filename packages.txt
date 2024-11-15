@@ -1,0 +1,59 @@
+ffmpeg
+gh
+speedtest-cli
+bitwarden-cli
+only-switch
+mas
+--cask vlc
+--cask iina
+--cask sonos
+--cask handbrake
+--cask imageoptim
+--cask obs
+--cask discord
+--cask shottr
+--cask raycast
+--cask rocket
+--cask stats
+--cask the-unarchiver
+--cask keka
+--cask jordanbaird-ice
+--cask dockdoor
+--cask onyx
+--cask app-cleaner
+--cask grandperspective
+--cask apparency
+--cask --no-quarantine syntax-highlight
+--cask betterdisplay
+--cask rewind
+--cask logi-options+
+--cask steam
+--cask utm
+--cask arc
+--cask firefox
+--cask zen-browser
+--cask sublime-text
+--cask visual-studio-code
+--cask sublime-text
+--cask codeedit
+--cask warp
+--cask amazon-q
+docker
+--cask github-copilot-for-xcode
+--cask notion-calendar
+--cask notion
+--cask google-drive
+--cask libreoffice
+--cask obsidian
+--cask figma
+--cask sketch
+--cask sketch@beta
+--cask blender
+--cask adobe-creative-cloud
+--cask miro
+--cask balenaetcher
+
+
+
+
+
