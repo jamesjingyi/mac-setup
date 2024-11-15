@@ -1,7 +1,7 @@
 # Setting up a Mac
 
 > ### Optional: Reinstall macOS
-> Reinstall macOS using 
+> Reinstall macOS using this guide: https://support.apple.com/en-gb/guide/mac-help/mchlp1599/mac
 
 ## Preparation
 Download the following files:
