@@ -71,3 +71,95 @@ git clone https://github.com/google/fonts.git google-fonts
 
 ### 2.2 - Fontshare
 There is no way to install all of these at once. Unfortunately you have to go and select 'Download' on each [here](https://www.fontshare.com)
+
+# 3 - Settings
+### 3.1 - Desktop and Dock
+I turn on `Automatically hide and show the Dock` and set the size and magnification as shown here:
+![Screenshot of the Dock settings in macOS](Desktop-and-Dock-settings.png)
+
+### 3.2 - Windows
+I turn on `Hold ⌥ key while dragging windows to tile` and turn off `Tiled windows have margins`
+
+### 3.3 - Mission Control
+I turn on `Group windows by application`
+![Screenshot of the Windows and Mission Control settings in macOS](Windows-and-Mission-Control-settings.png)
+
+### 3.4 - Keyboard Shortcuts
+Since I use `Shottr` for screenshots, I change the `Copy` default to add an `⌥` modifier e.g. `⇧` + `⌘` + `3` -> `⌥` + `⇧` + `⌘` + `3`
+Also since I use `Raycast` instead of `Spotlight`, I change from `⌘` + `Space` to `⌥` + `Space`
+![Screenshot of the Screenshot keyboard shortcuts in macOS](Screenshot-shortcuts.png)
+![Screenshot of the Spotlight keyboard shortcuts in macOS](Spotlight-shortcuts.png)
+
+### 3.5 - Ice settings
+To tidy up my menu bar I use `Ice`, where I place things is as follows:
+![Screenshot of my Ice menu bar arrangement](Ice-settings.png)
+
+
+### 3.6 - Raycast Extensions
+I have installed:
+- Apple Maps Search
+- Apple Notes
+- Arc
+- Bitwarden Vault
+- Coffee (caffienate)
+- Notion
+- Wifi Password Reveal
+
+### 3.7 - Velja settings
+I use Velja to automate switching for Google apps. They are as folllows:
+
+Name: **Google Docs**
+Open in: Arc
+Sample URL: `https://docs.google.com`
+Detect via: Domain
+Match: `docs.google.com`
+Source Apps:
+- Slack
+- Arc
+- Mail
+- Calendar
+
+Name: **Google Meet**
+Open in: Arc
+Sample URL: `meet.google.com`
+Detect via: Domain
+Match: `meet.google.com`
+Source Apps:
+- Notion Calendar
+- Rewind
+- Arc
+- Slack
+- Mail
+- Calendar
+
+Name: **Google Drive**
+Open in: Arc
+Sample URL: `https://www.drive.google.com/`
+Detect via: Domain
+Match: `drive.google.com`
+Source Apps: `No Source Apps`
+
+Name: **Google Calendar**
+Open in: Arc
+Sample URL: `https://calendar.google.com/`
+Detect via: Domain
+Match: `calendar.google.com`
+Source Apps: `No Source Apps`
+
+Name: **Jira**
+Open in: Arc
+Sample URL: `https://atlassian.net/`
+Detect via: Domain
+Match: `atlassian.net`
+Source Apps: `No Source Apps`
+
+Name: **Jira**
+Open in: Arc
+Sample URL: `https://harvestapp.com/`
+Detect via: Domain
+Match: `harvestapp.com`
+
+Sample URL: `https://getharvest.com/`
+Detect via: Domain
+Match: `getharvest.com`
+Source Apps: `No Source Apps`

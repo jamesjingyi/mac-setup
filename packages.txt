@@ -38,6 +38,7 @@ mas
 --cask codeedit
 --cask warp
 --cask amazon-q
+--cask chatgpt
 docker
 --cask github-copilot-for-xcode
 --cask notion-calendar
