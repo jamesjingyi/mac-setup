@@ -84,18 +84,21 @@ I turn on `Hold ⌥ key while dragging windows to tile` and turn off `Tiled wind
 I turn on `Group windows by application`
 ![Screenshot of the Windows and Mission Control settings in macOS](Windows-and-Mission-Control-settings.png)
 
-### 3.4 - Keyboard Shortcuts
+### 3.4 - Trackpad
+I turn on the gesture for `App Exposé` - `Swipe Down with Three Fingers`
+
+### 3.5 - Keyboard Shortcuts
 Since I use `Shottr` for screenshots, I change the `Copy` default to add an `⌥` modifier e.g. `⇧` + `⌘` + `3` -> `⌥` + `⇧` + `⌘` + `3`
 Also since I use `Raycast` instead of `Spotlight`, I change from `⌘` + `Space` to `⌥` + `Space`
 ![Screenshot of the Screenshot keyboard shortcuts in macOS](Screenshot-shortcuts.png)
 ![Screenshot of the Spotlight keyboard shortcuts in macOS](Spotlight-shortcuts.png)
 
-### 3.5 - Ice settings
+### 3.6 - Ice settings
 To tidy up my menu bar I use `Ice`, where I place things is as follows:
 ![Screenshot of my Ice menu bar arrangement](Ice-settings.png)
 
 
-### 3.6 - Raycast Extensions
+### 3.7 - Raycast Extensions
 I have installed:
 - Apple Maps Search
 - Apple Notes
@@ -105,7 +108,7 @@ I have installed:
 - Notion
 - Wifi Password Reveal
 
-### 3.7 - Velja settings
+### 3.8 - Velja settings
 I use Velja to automate switching for Google apps. They are as folllows:
 
 Name: **Google Docs**
