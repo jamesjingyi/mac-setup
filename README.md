@@ -15,6 +15,7 @@ For the commands later you need to run these from the place where these files ar
 ```
 cd Downloads/
 ```
+---
 
 # 1 - Install apps
 ## 1.1 - Homebrew
@@ -27,6 +28,7 @@ cd Downloads/
 brew install $(grep -v '^--cask' packages.txt) && brew install --cask $(grep '^--cask' packages.txt | sed 's/^--cask //')
 ```
 `brew install` can install multiple packages at once by just queueing them up, one after another (e.g. `brew install gh bitwarden-cli`), however has to install `cask` and `non-cask` packages separately. The above command separates this into two commands.
+<br><br>
 ## 1.2 - Mac App Store
 **1.2.1** - Using the `mas` package installed in **Step 1.1.2**, install previously purchased/installed apps recursively using the following command:
 ```
@@ -37,6 +39,7 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 |--|--|
 |`BlueSky`|Mac App Store - [BlueSky](https://apps.apple.com/gb/app/bluesky-social/id6444370199)|
 |`X`|Mac App Store - [BlueSky](https://apps.apple.com/gb/app/x/id333903271)|
+<br><br>
 ## 1.3 - Other sources
 **1.3.1** - The other apps I install outside of these two places are:
 |App name|Link|
@@ -47,9 +50,13 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 |`AirBattery`|Github - [AirBattery](https://lihaoyun6.github.io/airbattery/)|
 |`TheBoringNotch`|Github - [TheBoringNotch](https://github.com/TheBoredTeam/boring.notch)|
 **1.3.2** - `TheBoringNotch` is not yet signed by Apple, so when first launched, it will show a popup saying it is untrusted. Click `Okay`, then on your Mac go to `Settings` > `Privacy & Security`  and scroll until you see a button saying `Open Anyway`.
+<br><br>
 ## 1.4 - Additional app downloads
 **1.4.1** - **Adobe**:  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
 **1.4.2** - **Xcode**: Xcode needs to install additional bits. Launch it and download the relevant environments.
+<br><br>
+
+---
 
 # 2 - Install fonts
 ## 2.1 - Google Fonts
@@ -70,11 +77,17 @@ git clone https://github.com/google/fonts.git google-fonts
 > Source: [How to Install ALL Google Fonts on
 > macOS](https://www.junian.net/tech/macos-google-fonts/)
 
+<br><br>
+
 ## 2.2 - Apple Fonts
 I usually need to use some of Apple’s fonts (like San Francisco), so I download them from Apple [here](https://developer.apple.com/fonts/).
+<br><br>
 
 ## 2.3 - Fontshare
 There is no way to install all of these at once. Unfortunately you have to go and select 'Download' on each [here](https://www.fontshare.com).
+<br><br>
+
+---
 
 # 3 - Settings
 ## 3.1 - System Preferences
@@ -97,8 +110,9 @@ Since I use `Shottr` for screenshots, I change the `Copy` default to add an `⌥
 Also since I use `Raycast` instead of `Spotlight`, I change from `⌘` + `Space` to `⌥` + `Space`
 ![Screenshot of the Screenshot keyboard shortcuts in macOS](Screenshot-shortcuts.png)
 ![Screenshot of the Spotlight keyboard shortcuts in macOS](Spotlight-shortcuts.png)
+<br><br>
 
-## 3.2 - Preinstalled Apps
+# 3.2 - Preinstalled Apps
 ## 3.2.1 - Finder
 ### 3.2.1.1 - Preferences
 Finder’s sidebar is never used enough imo, so I open Finder, do `⌘` + `,` to open `Preferences` and:
@@ -112,10 +126,12 @@ Finder’s sidebar is never used enough imo, so I open Finder, do `⌘` + `,` to
     - In `List` view I also add `Date Modified` as this can sometimes be useful
 ### 3.2.1.3 - In other apps
 When you’re in other apps, the selection interface can be hard to use, especially with your `Downloads` folder which can often be shown in the `Columns` view. In this view, it sorts alphabetically and you can’t seem to find blank space to right click and sort by `Date Last Added`. To rectify this, change it to `Icons`, and you’ll be able to find space in-between documents to right click.
+<br><br>
 
 ## 3.2.2 - Safari
 I am not sure why, but Safari likes to default to open with a new window every time you start it up. I always change it to:
 `Safari opens with:` `All windows from last session`
+<br><br>
 
 ## 3.2.3 - Dock
 We already talked about the Dock settings before, but I like to separate out the items on my Dock using spacers. There are two types of spacer, small and regular. Regular is the same size as a full app, whereas small is half the width. I use small spacers. 
@@ -133,9 +149,13 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-sp
 ```
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
 ```
+<br><br>
+
 # 3.3 - Replacing default macOS functions
 ## 3.3.1 - Raycast
 I prefer Raycast to Spotlight — it has many more functions and I can customise it more. I am by no means a power user, but I have adjusted it so that it works for me.
+<br><br>
+
 ## 3.3.1.1 - Extensions
 Raycast has a Store which allows you to install `Extensions` which can run functions on your Mac, both system and app-specific. When I first started using Raycast, I ended up adding loads and loads of extensions, and both forgetting about functions, and also being overwhelmed when I searched for a function. There a few ways I have combatted this:
 1. **I only install Extensions I will actually use** — This seems simple, but I am definitely an optimistic downloader. I have tamed this somewhat. If I am browsing the Store, I carefully check my own workflow to identify if I think an extension would actually make sense (do I use this function commonly? Would I actually think to use Raycast rather than a web app?).
@@ -315,6 +335,7 @@ I use Velja to automate switching to Arc for Google apps. They are as folllows:
 
 ## 3.2.5 - Rocket (Emojis)
 I prefer typing a `:` and searching to insert emoji. Rocket does this really well. I hide the Menu Bar icon using `Ice`.
+<br><br>
 
 # 3.4 - System Enhancements
 ## 3.4.1 - DockDoor
@@ -339,6 +360,7 @@ In `Window Switcher`:
 `Boring Notch` is a great app and has loads of functionality to make your notch more useful on MacBooks. They added the feature I really wanted — being able to assign this to only your MacBook screen when connected to external monitors.
 
 I think everything is fine as default, though of course I enable `Launch at login`.
+<br><br>
 
 # 3.5 - Utilities
 These are other utilities I use that aren’t necessarily tied to system functions, but things I install, and set to open on login (they are automatically downloaded in the `packages.txt` and `mas-apps.txt`).
@@ -398,6 +420,7 @@ This is a good app to have just so you can see all the details of any app on you
 
 ## 3.5.8 - Syntax Highlight
 This is a Quick Look Extension to previewing source files using Quick Look. Another great one to have.
+<br><br>
 
 # 3.6 - Removing things from the Menu Bar
 Loads of apps like to have Menu Bar items, and mine’s already quite cluttered, even with Ice. I therefore go into each of these apps and turn them off:
