@@ -15,7 +15,11 @@ For the commands later you need to run these from the place where these files ar
 ```
 cd Downloads/
 ```
+<br>
+
+
 ---
+<br>
 
 # 1 - Install apps
 ## 1.1 - Homebrew
@@ -39,7 +43,10 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 |--|--|
 |`BlueSky`|Mac App Store - [BlueSky](https://apps.apple.com/gb/app/bluesky-social/id6444370199)|
 |`X`|Mac App Store - [BlueSky](https://apps.apple.com/gb/app/x/id333903271)|
-<br><br>
+
+<br>
+
+
 ## 1.3 - Other sources
 **1.3.1** - The other apps I install outside of these two places are:
 |App name|Link|
@@ -49,14 +56,18 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 |`ShazamScrobbler`|Github - [ShazamScrobbler for Mac](https://github.com/ShazamScrobbler/macos-app)|
 |`AirBattery`|Github - [AirBattery](https://lihaoyun6.github.io/airbattery/)|
 |`TheBoringNotch`|Github - [TheBoringNotch](https://github.com/TheBoredTeam/boring.notch)|
+
 **1.3.2** - `TheBoringNotch` is not yet signed by Apple, so when first launched, it will show a popup saying it is untrusted. Click `Okay`, then on your Mac go to `Settings` > `Privacy & Security`  and scroll until you see a button saying `Open Anyway`.
-<br><br>
+
+<br>
+
 ## 1.4 - Additional app downloads
 **1.4.1** - **Adobe**:  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
 **1.4.2** - **Xcode**: Xcode needs to install additional bits. Launch it and download the relevant environments.
 <br><br>
 
 ---
+<br>
 
 # 2 - Install fonts
 ## 2.1 - Google Fonts
@@ -77,7 +88,7 @@ git clone https://github.com/google/fonts.git google-fonts
 > Source: [How to Install ALL Google Fonts on
 > macOS](https://www.junian.net/tech/macos-google-fonts/)
 
-<br><br>
+<br>
 
 ## 2.2 - Apple Fonts
 I usually need to use some of Apple’s fonts (like San Francisco), so I download them from Apple [here](https://developer.apple.com/fonts/).
@@ -85,9 +96,11 @@ I usually need to use some of Apple’s fonts (like San Francisco), so I downloa
 
 ## 2.3 - Fontshare
 There is no way to install all of these at once. Unfortunately you have to go and select 'Download' on each [here](https://www.fontshare.com).
-<br><br>
+<br><br><br>
+
 
 ---
+<br>
 
 # 3 - Settings
 ## 3.1 - System Preferences
@@ -135,6 +148,7 @@ I am not sure why, but Safari likes to default to open with a new window every t
 
 ## 3.2.3 - Dock
 We already talked about the Dock settings before, but I like to separate out the items on my Dock using spacers. There are two types of spacer, small and regular. Regular is the same size as a full app, whereas small is half the width. I use small spacers. 
+<br><br>
 
 To add these, you have to run the corresponding command in `Terminal`. Sometimes this doesn’t work, so re-run it until it adds one. Once one is added, drag and position it before adding another — the success rate of adding another seems to go up if you drag the one you just added away.
 
@@ -156,7 +170,7 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-t
 I prefer Raycast to Spotlight — it has many more functions and I can customise it more. I am by no means a power user, but I have adjusted it so that it works for me.
 <br><br>
 
-## 3.3.1.1 - Extensions
+### 3.3.1.1 - Extensions
 Raycast has a Store which allows you to install `Extensions` which can run functions on your Mac, both system and app-specific. When I first started using Raycast, I ended up adding loads and loads of extensions, and both forgetting about functions, and also being overwhelmed when I searched for a function. There a few ways I have combatted this:
 1. **I only install Extensions I will actually use** — This seems simple, but I am definitely an optimistic downloader. I have tamed this somewhat. If I am browsing the Store, I carefully check my own workflow to identify if I think an extension would actually make sense (do I use this function commonly? Would I actually think to use Raycast rather than a web app?).
 2. **I only enable the parts of the Extensions that I want** - This is something I didn’t really think about properly until recently, but this actually made my menus much less overwhelming. In the `Extensions` tab, I go through and expand each Extension and uncheck all the Commands which duplicate other functionality, or I just don’t want.
@@ -201,7 +215,7 @@ Below I have written out the Extensions I have installed, and the Commands I hav
 | Wifi Password Reveal | - | `wifi_reveal` |
 | Window Management | Bottom Half<br>Bottom Left Quarter<br>Bottom Right Quarter<br>Left Half<br>Maximize<br>Top Left Quarter<br>Top Right Quarter | `win_b`<br>`win_bl`<br>`win_br`<br>`win_l`<br>`win_fs`<br>`win_t`<br>`win_tl`<br>`win_tr` |
 
-## 3.3.1.2 Aliases
+### 3.3.1.2 Aliases
 Adding Aliases actually was actually a game-changer. These allow you to assign characters to Extension (which includes each app), meaning when you type these, Raycast suggests this first. This even works if you haven’t typed the whole of the Alias, suggesting it above the default search.I now have double or triple letter Aliases set so I can quickly launch them.
 
 These are also good for when something has been renamed, or if you can’t remember the name of something but can remember its function (or want to group applications by function). For example I have **Terminal** set to `term` and **Warp** set to `term2`, and **X** set to `twi`.
@@ -259,6 +273,7 @@ I have the Extensions Aliases above, but for apps specifically I have:
 | X | `twi` |
 | Zen Browser | `zen` |
 
+<br>
 
 ## 3.2.2 - Ice
 To tidy up my menu bar I use `Ice`, where I place things is as follows:
@@ -276,6 +291,8 @@ Since I want it to replace the default screenshots in macOS, I set it up to:
 | Area screenshot | `⇧` + `⌘` + `4` | 
 | Instant Text/QR Recognition | `⇧` + `⌘` + `2` |
 ![Screenshot of Shottr’s Hotkey settings](Shottr-hotkey-settings.png)
+
+<br><br>
 
 ## 3.2.4 - Velja
 I use Velja to automate switching to Arc for Google apps. They are as folllows:
@@ -333,6 +350,9 @@ I use Velja to automate switching to Arc for Google apps. They are as folllows:
 |Match:|`getharvest.com`|
 |Source Apps:|`No Source Apps`|
 
+
+<br><br>
+
 ## 3.2.5 - Rocket (Emojis)
 I prefer typing a `:` and searching to insert emoji. Rocket does this really well. I hide the Menu Bar icon using `Ice`.
 <br><br>
@@ -356,10 +376,13 @@ In `Window Switcher`:
 - I uncheck `Enable Window Switcher`
 ![Screenshot of DockDoor’s Window Switcher settings](DockDoor-Window-Switcher-Settings.png)
 
+<br><br>
+
 ## 3.4.2 - Boring Notch
 `Boring Notch` is a great app and has loads of functionality to make your notch more useful on MacBooks. They added the feature I really wanted — being able to assign this to only your MacBook screen when connected to external monitors.
 
 I think everything is fine as default, though of course I enable `Launch at login`.
+
 <br><br>
 
 # 3.5 - Utilities
@@ -390,6 +413,8 @@ In `Customisation` I turn on:
 
 ![Screenshot of OnlySwitch set up how I like it](OnlySwitch-settings.png)
 
+<br><br>
+
 ## 3.5.2 - MeetingBar
 I use MeetingBar only for a single function, it shows a fullscreen notification when a meeting starts, meaning I can’t ignore it. 
 
@@ -399,11 +424,17 @@ I turn off basically everything else and hide it in my menu bar using `Ice`.
 
 ![Screenshot of my MeetingBar settings](MeetingBar-settings.png)
 
+<br><br>
+
 ## 3.5.3 - Lossless Switcher
 This ensures you’re always streaming the best quality when connected to AirPods or other Bluetooth headphones. In the Menu Bar, click the icon to see its settings. I like to have it in the hidden menu in `Ice` with `Show Sample Rate` selected so I can keep an eye on it.
 
+<br><br>
+
 ## 3.5.4 - Amazon Q
 This is a great autocomplete for Terminal, but by default it shares a lot of data with Amazon. Log in and then select the icon in the Menu Bar > `Settings`. Then under `Settings` > `Preferences` > `Advanced`, turn off `Share Amazon Q content with AWS` and `Telemetry`.
+
+<br><br>
 
 ## 3.5.5 - AdGuard for Safari
 I don’t generally block ads, but I prefer not to be tracked, and don’t like the popups on websites, including cookie notices. I therefore turn on:
@@ -412,14 +443,21 @@ I don’t generally block ads, but I prefer not to be tracked, and don’t like 
 
 I also turn off `Show AdGuard for Safari in the menu bar`
 
+<br><br>
+
 ## 3.5.6 - NepTunes
 This is much better than the Last.fm app, for scrobbling. You just need to log in and grant access to your play history.
+
+<br><br>
 
 ## 3.5.7 - Apparency
 This is a good app to have just so you can see all the details of any app on your system in one place.
 
+<br><br>
+
 ## 3.5.8 - Syntax Highlight
 This is a Quick Look Extension to previewing source files using Quick Look. Another great one to have.
+
 <br><br>
 
 # 3.6 - Removing things from the Menu Bar
