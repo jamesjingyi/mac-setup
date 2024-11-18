@@ -1,4 +1,7 @@
 # Setting up a Mac
+| 💡 I have an identical version of this guide, but it's but formatted slightly nicer [in Notion](https://jamesjingyi.notion.site/How-I-set-up-my-Mac-141c522194a480908a5cd3b07391d17f?pvs=4) |
+|--|
+
 
 > ## Optional: Reinstall macOS
 > Reinstall macOS using this guide: https://support.apple.com/en-gb/guide/mac-help/mchlp1599/mac
