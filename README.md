@@ -116,6 +116,7 @@ I turn on `Group windows by application`
 ![Screenshot of the Windows and Mission Control settings in macOS](Windows-and-Mission-Control-settings.png)
 
 ### 3.1.4 - Trackpad
+I change the gesture for Mission Control to Swipe Up with Three Fingers
 I turn on the gesture for `App Exposé` - `Swipe Down with Three Fingers`
 
 ### 3.1.5 - Keyboard Shortcuts
@@ -123,6 +124,11 @@ Since I use `Shottr` for screenshots, I change the `Copy` default to add an `⌥
 Also since I use `Raycast` instead of `Spotlight`, I change from `⌘` + `Space` to `⌥` + `Space`
 ![Screenshot of the Screenshot keyboard shortcuts in macOS](Screenshot-shortcuts.png)
 ![Screenshot of the Spotlight keyboard shortcuts in macOS](Spotlight-shortcuts.png)
+
+### 3.1.6 - Control Centre (and menu bar)
+I ensure that `Bluetooth` is set to `Show in Menu Bar` — it doesn’t always show up here.
+I also change `Sound` to `Always Show in Menu Bar` .
+
 <br><br>
 
 # 3.2 - Preinstalled Apps
@@ -213,9 +219,9 @@ Below I have written out the Extensions I have installed, and the Commands I hav
 | View 2FA Codes | - | `2fa` |
 | Webpage to Markdown | - | `webpage_ _markdown` |
 | Wifi Password Reveal | - | `wifi_reveal` |
-| Window Management | Bottom Half<br>Bottom Left Quarter<br>Bottom Right Quarter<br>Left Half<br>Maximize<br>Top Left Quarter<br>Top Right Quarter | `win_b`<br>`win_bl`<br>`win_br`<br>`win_l`<br>`win_fs`<br>`win_t`<br>`win_tl`<br>`win_tr` |
+| Window Management | Bottom Half<br>Bottom Left Quarter<br>Bottom Right Quarter<br>Left Half<br>Maximize<br>Top Left Quarter<br>Top Right Quarter | `b`<br>`b,`<br>`b.`<br>`,`<br>`fs`<br>`t`<br>`t,`<br>`t.` |
 
-### 3.3.1.2 Aliases
+### 3.3.1.2 - Aliases
 Adding Aliases actually was actually a game-changer. These allow you to assign characters to Extension (which includes each app), meaning when you type these, Raycast suggests this first. This even works if you haven’t typed the whole of the Alias, suggesting it above the default search.I now have double or triple letter Aliases set so I can quickly launch them.
 
 These are also good for when something has been renamed, or if you can’t remember the name of something but can remember its function (or want to group applications by function). For example I have **Terminal** set to `term` and **Warp** set to `term2`, and **X** set to `twi`.
@@ -275,9 +281,33 @@ I have the Extensions Aliases above, but for apps specifically I have:
 
 <br>
 
+### 3.3.1.3 - Quicklinks
+Quicklinks allow you to search quickly from Raycast and go straight to your browser (or even certain apps if they support it). Icons are usually automatically populated by `Raycast` which is great. You can also assign Aliases to these. Currently I have:
+| Name | Alias | Link |
+|:----|:---:|:---:|
+| Amazon | `amz` | `https://www.amazon.co.uk/s?k={Query}` |
+| ChatGPT | `chat` | `https://chatgpt.com?hint=search&q={query}` |
+| Google Translate | `trans` | `https://translate.google.com/?sl={argument name="source language" default="auto"}&tl={argument name="target language"}&text={argument name="word"}&op=translate` |
+| Open Desktop | `dsk` | `~/Desktop` |
+| Open Documents | `doc` | `~/Documents` |
+| Open Downloads | `dow` | `~/Downloads` |
+| Open Root | `root` | `~/` |
+| Perplexity | `per` | `https://www.perplexity.ai/search?copilot=true&q={query}` |
+| Search Dribbble | `drib` | `https://dribbble.com/search/{argument}` |
+| Search DuckDuckGo | `duck` | `https://duckduckgo.com/?q={argument}` |
+| Search Google | `gs` | `https://google.com/search?q={argument}` |
+| Search Unsplash | `uns` | `https://unsplash.com/s/photos/{argument}` |
+| Search YouTube | `yt` | `https://www.youtube.com/results?search_query={argument}` |
+
+You can add links directly to folders on your Mac. To do this:
+1. Find the folder you want in Finder
+2. Hold down `⌥` and click `Edit` then select `Copy ”Folder Name” as Pathname` (or use the keyboard shortcut `⌥` + `⌘` + `C`)
+3. You will now have a pathname. You just need to remove `/Users/youruser` and replace this with `~/` e.g. for the Music folder it goes from `/Users/youruser/Music` to `~/Music`
+4. Now just use this as your link in Raycast and name accordingly!
+
 ## 3.2.2 - Ice
 To tidy up my menu bar I use `Ice`, where I place things is as follows:
-![Screenshot of my Ice menu bar arrangement](Ice-settings.png)
+![Screenshot of my Ice menu bar arrangement](Ice-settings.png | )
 
 ## 3.2.3 - Shottr
 I use `Shottr` instead of macOS’s built in screenshot utility. I prefer that it allows you to mark up, edit, crop, measure, and more!
@@ -447,6 +477,8 @@ I also turn off `Show AdGuard for Safari in the menu bar`
 
 ## 3.5.6 - NepTunes
 This is much better than the Last.fm app, for scrobbling. You just need to log in and grant access to your play history.
+
+Also I disable the widget (`Widget`, uncheck `Show widget`).
 
 <br><br>
 

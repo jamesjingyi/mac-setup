@@ -55,7 +55,8 @@ docker
 --cask adobe-creative-cloud
 --cask miro
 --cask balenaetcher
-
+--cask zed
+markedit
 
 
 
