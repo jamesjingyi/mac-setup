@@ -108,6 +108,9 @@ There is no way to install all of these at once. Unfortunately you have to go an
 I turn on `Automatically hide and show the Dock` and set the size and magnification as shown here:
 ![Screenshot of the Dock settings in macOS](Desktop-and-Dock-settings.png)
 
+In `Desktop & Stage Manager` I also set `Click wallpaper to reveal desktop` to `Only in Stage Manager` and turn off `Stage Manager`
+![Screenshot of the Desktop & Stage Manager settings in macOS](Desktop-Stage-Manager-Settings.png)
+
 ### 3.1.2 - Windows
 I turn on `Hold ⌥ key while dragging windows to tile` and turn off `Tiled windows have margins`
 
