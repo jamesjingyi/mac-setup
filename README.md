@@ -2,46 +2,95 @@
 | 💡 I have an identical version of this guide, but it's but formatted slightly nicer [in Notion](https://jamesjingyi.notion.site/How-I-set-up-my-Mac-141c522194a480908a5cd3b07391d17f?pvs=4) |
 |--|
 
-
 > ## Optional: Reinstall macOS
 > Reinstall macOS using this guide: https://support.apple.com/en-gb/guide/mac-help/mchlp1599/mac
 
 This includes a lot of free apps I use on my Mac. I have a comprehensive list of these in [Github](https://github.com/jamesjingyi/free-mac-apps) and [Google Sheets](https://docs.google.com/spreadsheets/d/1QwpL1hjc878nSpuWTZwgIOyCc4r4pMusmxD6eC2UIXA/edit?usp=sharing).
 
 # i. Preparation
-I have two files included in this repo.
+Homebrew has a built in `bundle` feature which allows you to automate the installation of multiple packages, both from `brew`, and also from the Mac App Store using `mas`. I used to separate these out, but this is a much simpler process.
 
- 1. `packages.txt` - These are all the packages I want installed from Homebrew
- 2. `mas-apps.txt` - These are all the packages I want installed from the Mac App Store
+This uses a `Brewfile` which is a text file which lists all the packages which you want to install. A `Brewfile` can have the following types of line:
+`tap` - A Homebrew tap to add
+`brew` - A Homebrew formula to install
+`cask` - A Homebrew cask to install
+`mas` - A Mac App Store ID to install
+`vscode` - A Visual Studio Code extension to install
+`whalebrew` - Docker images ditributed using the `whalebrew` package manager
 
-For the commands later you need to run these from the place where these files are downloaded. By default they will download to the `Downloads` folder (`Users/<username>/Downloads`), so you should `cd` in Terminal using:
+I currently do not use `whalebrew`. I also like to manually install my `vscode` extensions, so I do not include these in my `Brewfile`.
+
+It is important to note that to use the `mas` command, you need to have installed the `mas` package, so you need to include this in your `Brewfile` above any `mas` lines.
+
+A very basic `Brewfile` might look like this:
+
 ```
-cd Downloads/
+tap 'homebrew/cask'
+brew 'mas'
+mas "Xcode", id: 497799835
 ```
+
+In this example, the `homebrew/cask` tap is added, the `mas` package is installed, and the `Xcode` app is installed from the Mac App Store.
+
+If you have a current installation of Homebrew on an existing Mac that you want to replicate on another Mac, you can create a `Brewfile` by running the following command:
+
+```
+brew bundle dump
+```
+
+You can edit this `Brewfile` using TextEdit.
+
+I have also included my own `Brewfile` in this repo, which you can use to install all the packages I use.
+
 <br>
 
 
 ---
+
 <br>
 
 # 1 - Install apps
-## 1.1 - Homebrew
-**1.1.1** - Install Homebrew using the following command:
+## 1.1 - Install Homebrew
+Install Homebrew using the following command:
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-**1.1.2** - Then install all the packages recursively in `packages.txt` by running the command:
-```
-brew install $(grep -v '^--cask' packages.txt) && brew install --cask $(grep '^--cask' packages.txt | sed 's/^--cask //')
-```
-`brew install` can install multiple packages at once by just queueing them up, one after another (e.g. `brew install gh bitwarden-cli`), however has to install `cask` and `non-cask` packages separately. The above command separates this into two commands.
+
 <br><br>
-## 1.2 - Mac App Store
-**1.2.1** - Using the `mas` package installed in **Step 1.1.2**, install previously purchased/installed apps recursively using the following command:
+
+## 1.2 - Install packages
+1. Place the `Brewfile` (which you downloaded from here, or created yourself) in your `/usr/` directory — you can get here in Finder by selecting `Go` > `Go to Folder...` (or pressing `⌘` + `⇧` + `G`) and typing `~/`. Terminal should launch here by default.
+2. Open Terminal and run the following command:
 ```
-grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
+brew bundle install
 ```
-**1.2.2** - iOS/iPadOS Apps cannot be downloaded using `mas`. You have to download these manually. Currently the two I have installed are:
+(If you have your `Brewfile` in a different location, you can specify this by running `brew bundle install /path/to/Brewfile`)
+
+
+> ## Alternative to using a `Brewfile`
+> Previously instead of a `Brewfile`, I would install my packages using two separate files, separating out the Homebrew packages from those from the Mac App Store. This resulted in two files:
+> - `packages.txt` - This file lists all the packages I want installed from Homebrew
+> - `mas-apps.txt` - This file lists all the packages I want installed from the Mac App Store (using the `mas` package)
+
+> You can find examples of these files in the `old-package-method` folder of this repo. If you wish to use them, download them to your `Downloads` folder and:
+> 1. `cd` to the `Downloads` folder in Terminal using:
+> ```
+> cd Downloads/
+> ```
+
+> 2. Install all the packages recursively in `packages.txt` by running the command:
+> ```
+> brew install $(grep -v '^--cask' packages.txt) && brew install --cask $(grep '^--cask' packages.txt | sed 's/^--cask //')
+> ```
+> `brew install` can install multiple packages at once by just queueing them up, one after another (e.g. `brew install gh bitwarden-cli`), however has to install `cask` and `non-cask` packages separately. The above command separates this into two commands.
+
+> 3. Now use `mas` to install previously purchased/installed apps from the Mac App Store using the following command:
+> ```
+> grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
+> ```
+
+## 1.3 - iOS/iPadOS Apps from the Mac App Store
+These cannot be downloaded using `mas`. You have to download these manually. Currently the two I have installed are:
 |App name|Link|
 |--|--|
 |`BlueSky`|Mac App Store - [BlueSky](https://apps.apple.com/gb/app/bluesky-social/id6444370199)|
@@ -50,8 +99,8 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 <br>
 
 
-## 1.3 - Other sources
-**1.3.1** - The other apps I install outside of these two places are:
+## 1.4 - Other sources
+**1.4.1** - The other apps I install outside of these two places are:
 |App name|Link|
 |--|--|
 |`Lossless Switcher`|Github - [Lossless Switcher](https://github.com/vincentneo/LosslessSwitcher)|
@@ -60,13 +109,13 @@ grep -v '^\s*#' mas-apps.txt | awk '{print $1}' | xargs -n 1 mas install
 |`AirBattery`|Github - [AirBattery](https://lihaoyun6.github.io/airbattery/)|
 |`TheBoringNotch`|Github - [TheBoringNotch](https://github.com/TheBoredTeam/boring.notch)|
 
-**1.3.2** - `TheBoringNotch` is not yet signed by Apple, so when first launched, it will show a popup saying it is untrusted. Click `Okay`, then on your Mac go to `Settings` > `Privacy & Security`  and scroll until you see a button saying `Open Anyway`.
+**1.4.2** - `TheBoringNotch` is not yet signed by Apple, so when first launched, it will show a popup saying it is untrusted. Click `Okay`, then on your Mac go to `Settings` > `Privacy & Security`  and scroll until you see a button saying `Open Anyway`.
 
 <br>
 
-## 1.4 - Additional app downloads
-**1.4.1** - **Adobe**:  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
-**1.4.2** - **Xcode**: Xcode needs to install additional bits. Launch it and download the relevant environments.
+## 1.5 - Additional app downloads
+**1.5.1** - **Adobe**:  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
+**1.5.2** - **Xcode**: Xcode needs to install additional bits. Launch it and download the relevant environments.
 <br><br>
 
 ---
@@ -82,12 +131,12 @@ cd ~/Library/Fonts/
 git clone https://github.com/google/fonts.git google-fonts
 ```
 
-> **Updating fonts** 
-> ``` cd ~/Library/Fonts/google-fonts/ ``` 
+> **Updating fonts**
+> ``` cd ~/Library/Fonts/google-fonts/ ```
 > ``` git pull ```
-> 
-> **Removing fonts** 
-> ``` rm -rf ~/Library/Fonts/google-fonts/ ``` 
+>
+> **Removing fonts**
+> ``` rm -rf ~/Library/Fonts/google-fonts/ ```
 > Source: [How to Install ALL Google Fonts on
 > macOS](https://www.junian.net/tech/macos-google-fonts/)
 
@@ -159,7 +208,7 @@ I am not sure why, but Safari likes to default to open with a new window every t
 <br><br>
 
 ## 3.2.3 - Dock
-We already talked about the Dock settings before, but I like to separate out the items on my Dock using spacers. There are two types of spacer, small and regular. Regular is the same size as a full app, whereas small is half the width. I use small spacers. 
+We already talked about the Dock settings before, but I like to separate out the items on my Dock using spacers. There are two types of spacer, small and regular. Regular is the same size as a full app, whereas small is half the width. I use small spacers.
 <br><br>
 
 To add these, you have to run the corresponding command in `Terminal`. Sometimes this doesn’t work, so re-run it until it adds one. Once one is added, drag and position it before adding another — the success rate of adding another seems to go up if you drag the one you just added away.
@@ -236,7 +285,7 @@ I have the Extensions Aliases above, but for apps specifically I have:
 | App Name | Alias |
 |:----|:---:|
 | Adobe Acrobat | `acrobat` |
-| Adobe Illustrator | `il` | 
+| Adobe Illustrator | `il` |
 | Adobe InDesign | `id` |
 | Adobe Lightroom | `lr` |
 | Adobe Media Encoder | `media_enc` |
@@ -318,13 +367,13 @@ To tidy up my menu bar I use `Ice`, where I place things is as follows:
 ## 3.2.3 - Shottr
 I use `Shottr` instead of macOS’s built in screenshot utility. I prefer that it allows you to mark up, edit, crop, measure, and more!
 
-It also has a super useful OCR feature which allows you to select an area on the screen and extract the text from it. 
+It also has a super useful OCR feature which allows you to select an area on the screen and extract the text from it.
 
 Since I want it to replace the default screenshots in macOS, I set it up to:
-| Command | Shortcut 
+| Command | Shortcut
 |:----|:---:|
-| Fullscreen screenshot | `⇧` + `⌘` + `3` | 
-| Area screenshot | `⇧` + `⌘` + `4` | 
+| Fullscreen screenshot | `⇧` + `⌘` + `3` |
+| Area screenshot | `⇧` + `⌘` + `4` |
 | Instant Text/QR Recognition | `⇧` + `⌘` + `2` |
 ![Screenshot of Shottr’s Hotkey settings](Shottr-hotkey-settings.png)
 
@@ -368,9 +417,9 @@ I use Velja to automate switching to Arc for Google apps. They are as folllows:
 |Name:|**Jira**|
 |:----|:---:|
 |Open in:|Arc|
-|Sample URL:|`https://atlassian.net/` 
+|Sample URL:|`https://atlassian.net/`
 |Detect via:|Domain|
-|Match:|`atlassian.net` 
+|Match:|`atlassian.net`
 |Source Apps:|`No Source Apps`|
 
 |Name:|**Harvest**|
@@ -395,7 +444,7 @@ I prefer typing a `:` and searching to insert emoji. Rocket does this really wel
 
 # 3.4 - System Enhancements
 ## 3.4.1 - DockDoor
-`DockDoor` shows you a preview of the windows you have open when you hover over them in the Dock. 
+`DockDoor` shows you a preview of the windows you have open when you hover over them in the Dock.
 
 I prefer it to be clean, quick and launch on login, so I change:
 In `General`:
@@ -425,7 +474,7 @@ I think everything is fine as default, though of course I enable `Launch at logi
 These are other utilities I use that aren’t necessarily tied to system functions, but things I install, and set to open on login (they are automatically downloaded in the `packages.txt` and `mas-apps.txt`).
 
 ## 3.5.1 - AutoSwitch
-I like to use AutoSwitch as secondary menu to quickly access some advanced settings. 
+I like to use AutoSwitch as secondary menu to quickly access some advanced settings.
 
 In `General` I set:
 - `Launch:` `Launch at login` to `On`
@@ -452,7 +501,7 @@ In `Customisation` I turn on:
 <br><br>
 
 ## 3.5.2 - MeetingBar
-I use MeetingBar only for a single function, it shows a fullscreen notification when a meeting starts, meaning I can’t ignore it. 
+I use MeetingBar only for a single function, it shows a fullscreen notification when a meeting starts, meaning I can’t ignore it.
 
 I therefore check `Launch after login` and `Show a fullscreen notification when event starts`.
 
