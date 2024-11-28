@@ -58,14 +58,48 @@ Install Homebrew using the following command:
 
 <br><br>
 
-## 1.2 - Install packages
-1. Place the `Brewfile` (which you downloaded from here, or created yourself) in your `/usr/` directory — you can get here in Finder by selecting `Go` > `Go to Folder...` (or pressing `⌘` + `⇧` + `G`) and typing `~/`. Terminal should launch here by default.
-2. Open Terminal and run the following command:
+## 1.2 - Homebrew
+### 1.2.1 - Brewfile placement
+Place the `Brewfile` (which you downloaded from here, or created yourself) in your `/usr/` directory — you can get here in Finder by selecting `Go` > `Go to Folder...` (or pressing `⌘` + `⇧` + `G`) and typing `~/`. Terminal should launch here by default.
+
+### 1.2.2 - Installation
+Open Terminal and run the following command:
 ```
 brew bundle install
 ```
 (If you have your `Brewfile` in a different location, you can specify this by running `brew bundle install /path/to/Brewfile`)
 
+### 1.2.3 - Auto-updates
+I like my packages to update automatically, so I use the `Homebrew Autoupdate` package which just uses the built-in autoupdate mechanism within Homebrew. It is in my Brewfile, but if you want to install it yourself, you need to use:
+
+```
+brew tap domt4/autoupdate
+```
+
+I then configure it using the options:
+
+```
+brew autoupdate start 43200 --upgrade --cleanup --immediate --sudo
+```
+
+This is the example from the Autoupdate Github which:
+
+> Upgrade[s] all your casks and formulae every 12 hours and on every system boot.
+> 
+> 
+> If a sudo password is required for an upgrade, a GUI to enter your password will be displayed.
+> Also, it will clean up every old version and left-over files.
+> 
+> Casks that have built-in auto-updates enabled by default will not be upgraded.
+> 
+
+If you have set a `brew autoupdate` and want to change it, you first have to run:
+
+```
+brew autoupdate delete
+```
+
+Then run another `brew autoupdate start` command with your new parameters.
 
 > ## Alternative to using a `Brewfile`
 > Previously instead of a `Brewfile`, I would install my packages using two separate files, separating out the Homebrew packages from those from the Mac App Store. This resulted in two files:

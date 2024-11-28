@@ -1,9 +1,12 @@
+tap "domt4/autoupdate"
 tap "homebrew/bundle"
+tap "homebrew/services"
 brew "bitwarden-cli"
-brew "docker", link: false
+brew "docker"
 brew "ffmpeg"
 brew "gh"
 brew "mas"
+brew "pinentry-mac"
 brew "speedtest-cli"
 cask "adobe-creative-cloud"
 cask "amazon-q"
@@ -80,6 +83,7 @@ mas "FreeScaler", id: 6443796196
 mas "Harvest", id: 506189836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Linearity Curve", id: 1219074514
 mas "Logic Pro", id: 634148309
 mas "Mactracker", id: 430255202
 mas "MainStage", id: 634159523
