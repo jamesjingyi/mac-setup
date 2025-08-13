@@ -60,7 +60,7 @@ Install Homebrew using the following command:
 
 ## 1.2 - Homebrew
 ### 1.2.1 - Brewfile placement
-Place the `Brewfile` (which you downloaded from here, or created yourself) in your `/usr/` directory — you can get here in Finder by selecting `Go` > `Go to Folder...` (or pressing `⌘` + `⇧` + `G`) and typing `~/`. Terminal should launch here by default.
+Place the `Brewfile` (which you downloaded from here, or created yourself) in your Home directory — you can get here in Finder by selecting `Go` > `Go to Folder...` (or pressing `⌘` + `⇧` + `G`) and typing `~/`. Terminal should launch here by default.
 
 ### 1.2.2 - Installation
 Open Terminal and run the following command:
