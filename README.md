@@ -1,4 +1,6 @@
 # Setting up a Mac
+
+> **Updated November 2026:** the Brewfiles are refreshed to what I use now, my Ghostty and Starship configs are included (see 1.6), and apps I no longer use are marked as such.
 | 💡 I have an identical version of this guide, but it's but formatted slightly nicer [in Notion](https://jamesjingyi.notion.site/How-I-set-up-my-Mac-141c522194a480908a5cd3b07391d17f?pvs=4) |
 |--|
 
@@ -18,7 +20,7 @@ This uses a `Brewfile` which is a text file which lists all the packages which y
 `vscode` - A Visual Studio Code extension to install
 `whalebrew` - Docker images ditributed using the `whalebrew` package manager
 
-I currently do not use `whalebrew`. I also like to manually install my `vscode` extensions, so I do not include these in my `Brewfile`.
+I currently do not use `whalebrew`. My `Brewfile` now includes my `vscode` extensions too (`brew bundle dump` adds them); delete those lines if you'd rather install extensions by hand.
 
 It is important to note that to use the `mas` command, you need to have installed the `mas` package, so you need to include this in your `Brewfile` above any `mas` lines.
 
@@ -40,7 +42,11 @@ brew bundle dump
 
 You can edit this `Brewfile` using TextEdit.
 
-I have also included my own `Brewfile` in this repo, which you can use to install all the packages I use.
+I have also included my own `Brewfile` in this repo, which you can use to install all the packages I use. There are two:
+- `Brewfile`: everything I use, minus work-only apps.
+- `Brewfile Full/Brewfile`: everything installed on my Mac, work apps included.
+
+Both were refreshed in November 2026 with `brew bundle dump`, so each entry has a one-line description above it.
 
 <br>
 
@@ -137,23 +143,40 @@ These cannot be downloaded using `mas`. You have to download these manually. Cur
 **1.4.1** - The other apps I install outside of these two places are:
 |App name|Link|
 |--|--|
-|`Lossless Switcher`|Github - [Lossless Switcher](https://github.com/vincentneo/LosslessSwitcher)|
-|`OpenType Feature Freezer`|Github - [OpenType Feature Freezer](https://twardoch.github.io/fonttools-opentype-feature-freezer/)|
+|`Lossless Switcher` (no longer used)|Github - [Lossless Switcher](https://github.com/vincentneo/LosslessSwitcher)|
+|`OpenType Feature Freezer` (no longer used)|Github - [OpenType Feature Freezer](https://twardoch.github.io/fonttools-opentype-feature-freezer/)|
 |`ShazamScrobbler`|Github - [ShazamScrobbler for Mac](https://github.com/ShazamScrobbler/macos-app)|
-|`AirBattery`|Github - [AirBattery](https://lihaoyun6.github.io/airbattery/)|
-|`TheBoringNotch`|Github - [TheBoringNotch](https://github.com/TheBoredTeam/boring.notch)|
+|`AirBattery` (no longer used)|Github - [AirBattery](https://lihaoyun6.github.io/airbattery/)|
+|`TheBoringNotch` (no longer used)|Github - [TheBoringNotch](https://github.com/TheBoredTeam/boring.notch)|
 
 **1.4.2** - `TheBoringNotch` is not yet signed by Apple, so when first launched, it will show a popup saying it is untrusted. Click `Okay`, then on your Mac go to `Settings` > `Privacy & Security`  and scroll until you see a button saying `Open Anyway`.
 
 <br>
 
 ## 1.5 - Additional app downloads
-**1.5.1** - **Adobe**:  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
+**1.5.1** - **Adobe** (no longer used, November 2026):  `brew` will have installed `Creative Cloud` but it will not have installed the apps. Sign in and download the apps.
 **1.5.2** - **Xcode**: Xcode needs to install additional bits. Launch it and download the relevant environments.
 <br><br>
 
 ---
 <br>
+
+## 1.6 - App configs
+My app configs are in the `configs/` folder of this repo.
+
+**1.6.1** - **Ghostty** (my terminal): copy `configs/ghostty/config` to `~/Library/Application Support/com.mitchellh.ghostty/config`. Its `custom-shader` line points at a local copy of the [CRT shader](https://github.com/luiscarlospando/crt-shader-with-chromatic-aberration-glow-scanlines-dot-matrix) in `~/Github`; clone that first, or remove the line.
+
+**1.6.2** - **Starship** (my shell prompt): `brew install starship` (it's in the `Brewfile`), install a Nerd Font such as JetBrainsMono Nerd Font and set it as the terminal font, then copy both files in `configs/starship/` to `~/.config/`. `starship.toml` is the full layout; `starship-plain.toml` is a plain-ASCII version for Apple's Terminal, which can't render the Nerd Font glyphs reliably. Add this near the top of `~/.zshrc`:
+
+```bash
+case "$TERM_PROGRAM" in
+  "Apple_Terminal") export STARSHIP_CONFIG="$HOME/.config/starship-plain.toml" ;;
+  *)                export STARSHIP_CONFIG="$HOME/.config/starship.toml" ;;
+esac
+eval "$(starship init zsh)"
+```
+
+<br><br>
 
 # 2 - Install fonts
 ## 2.1 - Google Fonts
@@ -394,7 +417,7 @@ You can add links directly to folders on your Mac. To do this:
 3. You will now have a pathname. You just need to remove `/Users/youruser` and replace this with `~/` e.g. for the Music folder it goes from `/Users/youruser/Music` to `~/Music`
 4. Now just use this as your link in Raycast and name accordingly!
 
-## 3.2.2 - Ice
+## 3.2.2 - Ice — replaced by [Thaw](https://github.com/thaw-app/Thaw) (November 2026)
 To tidy up my menu bar I use `Ice`, where I place things is as follows:
 ![Screenshot of my Ice menu bar arrangement](Ice-settings.png | )
 
@@ -477,7 +500,7 @@ I prefer typing a `:` and searching to insert emoji. Rocket does this really wel
 <br><br>
 
 # 3.4 - System Enhancements
-## 3.4.1 - DockDoor
+## 3.4.1 - DockDoor — no longer used (November 2026)
 `DockDoor` shows you a preview of the windows you have open when you hover over them in the Dock.
 
 I prefer it to be clean, quick and launch on login, so I change:
@@ -497,7 +520,7 @@ In `Window Switcher`:
 
 <br><br>
 
-## 3.4.2 - Boring Notch
+## 3.4.2 - Boring Notch — no longer used (November 2026)
 `Boring Notch` is a great app and has loads of functionality to make your notch more useful on MacBooks. They added the feature I really wanted — being able to assign this to only your MacBook screen when connected to external monitors.
 
 I think everything is fine as default, though of course I enable `Launch at login`.
@@ -507,7 +530,7 @@ I think everything is fine as default, though of course I enable `Launch at logi
 # 3.5 - Utilities
 These are other utilities I use that aren’t necessarily tied to system functions, but things I install, and set to open on login (they are automatically downloaded in the `packages.txt` and `mas-apps.txt`).
 
-## 3.5.1 - AutoSwitch
+## 3.5.1 - AutoSwitch — no longer used (November 2026)
 I like to use AutoSwitch as secondary menu to quickly access some advanced settings.
 
 In `General` I set:
@@ -534,7 +557,7 @@ In `Customisation` I turn on:
 
 <br><br>
 
-## 3.5.2 - MeetingBar
+## 3.5.2 - MeetingBar — no longer used (November 2026)
 I use MeetingBar only for a single function, it shows a fullscreen notification when a meeting starts, meaning I can’t ignore it.
 
 I therefore check `Launch after login` and `Show a fullscreen notification when event starts`.
@@ -545,17 +568,17 @@ I turn off basically everything else and hide it in my menu bar using `Ice`.
 
 <br><br>
 
-## 3.5.3 - Lossless Switcher
+## 3.5.3 - Lossless Switcher — no longer used (November 2026)
 This ensures you’re always streaming the best quality when connected to AirPods or other Bluetooth headphones. In the Menu Bar, click the icon to see its settings. I like to have it in the hidden menu in `Ice` with `Show Sample Rate` selected so I can keep an eye on it.
 
 <br><br>
 
-## 3.5.4 - Amazon Q
+## 3.5.4 - Amazon Q — no longer used (November 2026)
 This is a great autocomplete for Terminal, but by default it shares a lot of data with Amazon. Log in and then select the icon in the Menu Bar > `Settings`. Then under `Settings` > `Preferences` > `Advanced`, turn off `Share Amazon Q content with AWS` and `Telemetry`.
 
 <br><br>
 
-## 3.5.5 - AdGuard for Safari
+## 3.5.5 - AdGuard for Safari — no longer used (November 2026)
 I don’t generally block ads, but I prefer not to be tracked, and don’t like the popups on websites, including cookie notices. I therefore turn on:
 - `Privacy`, with `AdGuard Tracking Protection filter` and `Peter Lowe's Blocklist`
 - `Annoyances`, with `AdGuard Annoyances filter`
@@ -571,12 +594,12 @@ Also I disable the widget (`Widget`, uncheck `Show widget`).
 
 <br><br>
 
-## 3.5.7 - Apparency
+## 3.5.7 - Apparency — no longer used (November 2026)
 This is a good app to have just so you can see all the details of any app on your system in one place.
 
 <br><br>
 
-## 3.5.8 - Syntax Highlight
+## 3.5.8 - Syntax Highlight — no longer used (November 2026)
 This is a Quick Look Extension to previewing source files using Quick Look. Another great one to have.
 
 <br><br>

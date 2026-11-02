@@ -1,0 +1,48 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """$username$directory$git_branch$git_status$nodejs$python$rust$golang$php$time
+$character"""
+
+[username]
+show_always = true
+format = "$user "
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+format = "$path "
+
+[git_branch]
+symbol = "git:"
+format = "$symbol $branch "
+
+[git_status]
+format = "$all_status$ahead_behind "
+
+[nodejs]
+symbol = "node"
+format = "$symbol ($version) "
+
+[python]
+symbol = "py"
+format = "$symbol ($version) "
+
+[rust]
+symbol = "rs"
+format = "$symbol ($version) "
+
+[golang]
+symbol = "go"
+format = "$symbol ($version) "
+
+[php]
+symbol = "php"
+format = "$symbol ($version) "
+
+[time]
+time_format = "%R"
+format = "time $time "
+
+[character]
+success_symbol = ">"
+error_symbol = "✗"
