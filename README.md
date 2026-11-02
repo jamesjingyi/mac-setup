@@ -286,6 +286,8 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-t
 # 3.3 - Replacing default macOS functions
 ## 3.3.1 - Raycast
 I prefer Raycast to Spotlight — it has many more functions and I can customise it more. I am by no means a power user, but I have adjusted it so that it works for me.
+
+My full Raycast settings are exported in `Raycast 2026-11-02.rayconfig` (password-protected). Import it in Raycast → Settings → Advanced → Import, then enter the export password. The older `Raycast 2025-07-04 12.40.48.rayconfig` is kept for reference.
 <br><br>
 
 ### 3.3.1.1 - Extensions
